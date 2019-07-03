@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>LOL Chess Items</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<style>
+			[data-tooltip-text]:hover {
+				position: relative;
+			}
+
+			[data-tooltip-text]:after {
+				-webkit-transition: bottom .3s ease-in-out, opacity .3s ease-in-out;
+				-moz-transition: bottom .3s ease-in-out, opacity .3s ease-in-out;
+				transition: bottom .3s ease-in-out, opacity .3s ease-in-out;
+
+				background-color: rgba(0, 50, 50, 0.8);
+
+				-webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+				-moz-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+				box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+
+				color: #FFFFFF;
+				font-size: 14px;
+				margin-bottom: 10px;
+				padding: 7px 12px;
+				position: absolute;
+				text-align:center;
+				width: 260px;
+				min-width: 50px;
+				max-width: 300px;
+				word-wrap: break-word;
+
+				z-index: 9999;
+
+				opacity: 0;
+				left: -9999px;
+				top: 90%;
+
+				content: attr(data-tooltip-text);
+			}
+
+			[data-tooltip-text]:hover:after {
+				top: 130%;
+				left: 0;
+				opacity: 1;
+			}
+
+			#main li {
+				display:inline;
+				padding:0;
+				border:2px solid gray;
+			}
+
+			#items a {
+				border:2px solid gray;
+			}
+
+			#result a {
+				border-top:0;
+				border-bottom:0;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../../index.html" class="logo">
+									<span class="symbol"><img src="../../images/logo.svg" alt="" /></span><span class="title">hi-jin</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="programming/index.html">Programming</a></li>
+							<li><a href="siliconvally/index.html">SiliconValley review</a></li>
+							<li><a href="mogaco/index.html">Mogaco</a></li>
+							<li><a href="#">ARGOS team</a></li>
+							<li><a href="argos_edu/index.html">ARGOS edu</a></li>
+							<li><a href="./index.html">LOL Chess</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>LOL Chess Items</h1>
+							<div id='items'>
+								<a style='color:black' onclick=clearItem()>초기화</a><br>
+								<a id = 'i0' data-tooltip-text=0개 style='color:blue' onclick=addItem(0)>B.F.대검</a>
+								<a id = 'i1' data-tooltip-text=0개 style='color:orange' onclick=addItem(1)>곡궁</a>
+								<a id = 'i2' data-tooltip-text=0개 style='color:blue' onclick=addItem(2)>쇠사슬 조끼</a>
+								<a id = 'i3' data-tooltip-text=0개 style='color:orange' onclick=addItem(3)>음전자 망토</a>
+								<a id = 'i4' data-tooltip-text=0개 style='color:red' onclick=addItem(4)>쓸데없이 큰 지팡이</a>
+								<a id = 'i5' data-tooltip-text=0개 style='color:blue' onclick=addItem(5)>여신의 눈물</a>
+								<a id = 'i6' data-tooltip-text=0개 onclick=addItem(6)>거인의 허리띠</a>
+								<a id = 'i7' data-tooltip-text=0개 style='color:orange' onclick=addItem(7)>뒤집개</a><br><br>
+								<p id="result"></p>
+							</div>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://www.facebook.com/profile.php?id=100008357586064" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://github.com/hi-jin" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/hi__jeans/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!--
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									-->
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script>
+			item = new Array();
+			clearItem();
+			function clearItem() {
+			item[0] = 0;
+			item[1] = 0;
+			item[2] = 0;
+			item[3] = 0;
+			item[4] = 0;
+			item[5] = 0;
+			item[6] = 0;
+			item[7] = 0;
+			all = 0;
+			document.getElementById("result").innerHTML = "";
+			setData();
+			}
+			function setData() {
+				for(var i = 0; i < 8; i++) {
+					document.getElementById("i" + i).setAttribute('data-tooltip-text', item[i] + "개");
+				}
+			}
+			function addItem(num) {
+				item[num]++;
+				all++;
+				if(item[num] == 1 && all > 1) {
+					for(var i = 7; i > num; i--) {
+						if(item[i] > 0) {
+							comb(i * 10 + num);
+						}
+					}
+					for(var i = num - 1; i >= 0; i--) {
+						if(item[i] > 0) {
+							comb(num * 10 + i);
+						}
+					}
+				}else if(item[num] == 2) {
+					comb(num * 11);
+				}
+				setData();
+			}
+			function makeItem(sum) {
+					var item1 = sum % 10;
+					var item2 = (sum - item1) / 10;
+					item[item1]--;
+					item[item2]--;
+					all--;
+					all--;
+					document.getElementById("result").innerHTML = "";
+					if(all > 1) {
+						for(var i = 7; i >= 0; i--) {
+							if(item[i] > 0) {
+								if(item[i] > 1) {
+									comb(i * 11);
+								}
+								for(var k = i - 1; k >= 0; k--) {
+									if(item[k] > 0) {
+										comb(i * 10 + k);
+									}
+								}
+							}
+						}
+					}
+					setData();
+				}
+			function comb(sum) {
+				switch(sum) {
+					case 00: itemName = "무한의 대검"; break;
+					case 10: itemName = "신성의 검"; break;
+					case 20: itemName = "수호 천사"; break;
+					case 30: itemName = "피바라기"; break;
+					case 40: itemName = "마법공학 총검"; break;
+					case 50: itemName = "쇼진의 창"; break;
+					case 60: itemName = "지크의 전령"; break;
+					case 70: itemName = "요우무의 유령검"; break;
+					case 11: itemName = "고속 연사포"; break;
+					case 21: itemName = "유령 무희"; break;
+					case 31: itemName = "저주받은 칼날"; break;
+					case 41: itemName = "구인수의 격노검"; break;
+					case 51: itemName = "스태틱의 단검"; break;
+					case 61: itemName = "거대한 히드라"; break;
+					case 71: itemName = "몰락한 왕의 검"; break;
+					case 22: itemName = "가시 갑옷"; break;
+					case 32: itemName = "파쇄검"; break;
+					case 42: itemName = "강철의 솔라리 팬던트"; break;
+					case 52: itemName = "얼어붙은 심장"; break;
+					case 62: itemName = "붉은 덩굴정령"; break;
+					case 72: itemName = "기사의 맹세"; break;
+					case 33: itemName = "용의 발톱"; break;
+					case 43: itemName = "이온 충격기"; break;
+					case 53: itemName = "침묵"; break;
+					case 63: itemName = "서풍"; break;
+					case 73: itemName = "루난의 허리케인"; break;
+					case 44: itemName = "라바돈의 죽음모자"; break;
+					case 54: itemName = "루덴의 메아리"; break;
+					case 64: itemName = "모렐로노미콘"; break;
+					case 74: itemName = "유미"; break;
+					case 55: itemName = "대천사의 포옹"; break;
+					case 65: itemName = "구원"; break;
+					case 75: itemName = "다르킨"; break;
+					case 66: itemName = "워모그의 갑옷"; break;
+					case 76: itemName = "얼어붙은 망치"; break;
+					case 77: itemName = "대자연의 힘"; break;
+				}
+				document.getElementById("result").innerHTML += "<a href='#' id='new'>" + itemName + "</a>" + " ";
+				var setName = "item" + sum;
+				var setMake = 'makeItem' + '(' + sum + ')';
+				var item1 = sum % 10;
+				var item2 = (sum - item1) / 10;
+				var num1 = item1;
+				var num2 = item2;
+				item1 = document.getElementById("i" + item1).innerHTML;
+				item2 = document.getElementById("i" + item2).innerHTML;
+
+				document.getElementById("new").setAttribute('onclick', setMake);
+				if(num1 == num2) document.getElementById("new").setAttribute('data-tooltip-text', item1 + item[num1] + "개");
+				else document.getElementById("new").setAttribute('data-tooltip-text', item1 + item[num1] + "개"+ " + " + item2 + item[num2] + "개");
+				document.getElementById("new").setAttribute('id', setName);
+				setData();
+			}
+
+			</script>
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
