@@ -12,6 +12,9 @@
 		<link rel="stylesheet" href="../../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
 		<style>
+			.tiles article > a {
+				color:black;
+			}
 			[data-tooltip-text]:hover {
 				position: relative;
 			}
@@ -64,7 +67,7 @@
 			}
 
 			#items a {
-				border:2px solid gray;
+				border-bottom:2px solid gray;
 			}
 
 			#result a {
@@ -115,17 +118,78 @@
 						<div class="inner">
 							<h1>LOL Chess Items</h1>
 							<div id='items'>
-								<a style='color:black' onclick=clearItem()>초기화</a><br>
-								<a id = 'i0' data-tooltip-text=0개 style='color:blue' onclick=addItem(0)>B.F.대검</a>
-								<a id = 'i1' data-tooltip-text=0개 style='color:orange' onclick=addItem(1)>곡궁</a>
-								<a id = 'i2' data-tooltip-text=0개 style='color:blue' onclick=addItem(2)>쇠사슬 조끼</a>
-								<a id = 'i3' data-tooltip-text=0개 style='color:orange' onclick=addItem(3)>음전자 망토</a>
-								<a id = 'i4' data-tooltip-text=0개 style='color:red' onclick=addItem(4)>쓸데없이 큰 지팡이</a>
-								<a id = 'i5' data-tooltip-text=0개 style='color:blue' onclick=addItem(5)>여신의 눈물</a>
-								<a id = 'i6' data-tooltip-text=0개 onclick=addItem(6)>거인의 허리띠</a>
-								<a id = 'i7' data-tooltip-text=0개 style='color:orange' onclick=addItem(7)>뒤집개</a><br><br>
-								<p id="result"></p>
+								<a style='color:black; font-size:23px' onclick=clearItem()>초기화</a><br>
+								<section style='margin-top:0' class="tiles">
+									<article style='width:64px'>
+										<span style='width:64px' class="image">
+											<a id = 'i0' style='color:blue'><img style='opacity:0.5'src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/1038.png"></a>
+										</span>
+										<a style='width:64px; height:64px' onclick=addItem(0)>
+											<p id='n0' style='font-size:30px'></p>
+										</a>
+									</article>
+									<article style='width:64px'>
+										<span style='width:64px' class="image">
+											<a id = 'i1' style='color:orange'><img style='opacity:0.5'src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/1043.png"></a>
+										</span>
+										<a style='width:64px; height:64px' onclick=addItem(1)>
+											<p id='n1' style='font-size:30px'></p>
+										</a>
+									</article>
+									<article style='width:64px'>
+										<span style='width:64px' class="image">
+											<a id = 'i2' style='color:blue'><img style='opacity:0.5'src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/1031.png"></a>
+										</span>
+										<a style='width:64px; height:64px' onclick=addItem(2)>
+											<p id='n2' style='font-size:30px'></p>
+										</a>
+									</article>
+									<article style='width:64px'>
+										<span style='width:64px' class="image">
+											<a id = 'i3' style='color:orange'><img style='opacity:0.5'src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/1057.png"></a>
+										</span>
+										<a style='width:64px; height:64px' onclick=addItem(3)>
+											<p id='n3' style='font-size:30px'></p>
+										</a>
+									</article>
+									<article style='width:64px'>
+										<span style='width:64px' class="image">
+											<a id = 'i4' style='color:red'><img style='opacity:0.5'src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/1058.png"></a>
+										</span>
+										<a style='width:64px; height:64px' onclick=addItem(4)>
+											<p id='n4' style='font-size:30px'></p>
+										</a>
+									</article>
+									<article style='width:64px'>
+										<span style='width:64px' class="image">
+											<a id = 'i5' style='color:blue'><img style='opacity:0.5'src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/3070.png"></a>
+										</span>
+										<a style='width:64px; height:64px' onclick=addItem(5)>
+											<p id='n5' style='font-size:30px'></p>
+										</a>
+									</article>
+									<article style='width:64px'>
+										<span style='width:64px' class="image">
+											<a id = 'i6' onclick=addItem(6)><img style='opacity:0.5'src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/1011.png"></a>
+										</span>
+										<a style='width:64px; height:64px' onclick=addItem(6)>
+											<p id='n6' style='font-size:30px'></p>
+										</a>
+									</article>
+									<article style='width:64px'>
+										<span style='width:64px; height:64px' class="image">
+											<a id = 'i7' style='color:orange; width:64px; height:64px'><img style='opacity:0.5'src="https://static.lolchess.gg/images/tft/item/Spatula.png"></a><br>
+										</span>
+										<a style='width:64px; height:64px' onclick=addItem(7)>
+											<p id="n7" style='font-size:30px'></p>
+										</a>
+									</article>
+								</section>
 							</div>
+									<br><br>
+								<section class="titles">
+										<p id="result"></p>
+								</section>
 						</div>
 					</div>
 
@@ -178,6 +242,11 @@
 			<script>
 			item = new Array();
 			clearItem();
+			function setNumOfItem() {
+				for(var i = 0; i < 8; i++) {
+					document.getElementById("n" + i).innerHTML = item[i];
+				}
+			}
 			function clearItem() {
 			item[0] = 0;
 			item[1] = 0;
@@ -189,12 +258,7 @@
 			item[7] = 0;
 			all = 0;
 			document.getElementById("result").innerHTML = "";
-			setData();
-			}
-			function setData() {
-				for(var i = 0; i < 8; i++) {
-					document.getElementById("i" + i).setAttribute('data-tooltip-text', item[i] + "개");
-				}
+			setNumOfItem();
 			}
 			function addItem(num) {
 				item[num]++;
@@ -213,7 +277,7 @@
 				}else if(item[num] == 2) {
 					comb(num * 11);
 				}
-				setData();
+				setNumOfItem();
 			}
 			function makeItem(sum) {
 					var item1 = sum % 10;
@@ -237,48 +301,48 @@
 							}
 						}
 					}
-					setData();
+					setNumOfItem();
 				}
 			function comb(sum) {
 				switch(sum) {
-					case 00: itemName = "무한의 대검"; break;
-					case 10: itemName = "신성의 검"; break;
-					case 20: itemName = "수호 천사"; break;
-					case 30: itemName = "피바라기"; break;
-					case 40: itemName = "마법공학 총검"; break;
-					case 50: itemName = "쇼진의 창"; break;
-					case 60: itemName = "지크의 전령"; break;
-					case 70: itemName = "요우무의 유령검"; break;
-					case 11: itemName = "고속 연사포"; break;
-					case 21: itemName = "유령 무희"; break;
-					case 31: itemName = "저주받은 칼날"; break;
-					case 41: itemName = "구인수의 격노검"; break;
-					case 51: itemName = "스태틱의 단검"; break;
-					case 61: itemName = "거대한 히드라"; break;
-					case 71: itemName = "몰락한 왕의 검"; break;
-					case 22: itemName = "가시 갑옷"; break;
-					case 32: itemName = "파쇄검"; break;
-					case 42: itemName = "강철의 솔라리 팬던트"; break;
-					case 52: itemName = "얼어붙은 심장"; break;
-					case 62: itemName = "붉은 덩굴정령"; break;
-					case 72: itemName = "기사의 맹세"; break;
-					case 33: itemName = "용의 발톱"; break;
-					case 43: itemName = "이온 충격기"; break;
-					case 53: itemName = "침묵"; break;
-					case 63: itemName = "서풍"; break;
-					case 73: itemName = "루난의 허리케인"; break;
-					case 44: itemName = "라바돈의 죽음모자"; break;
-					case 54: itemName = "루덴의 메아리"; break;
-					case 64: itemName = "모렐로노미콘"; break;
-					case 74: itemName = "유미"; break;
-					case 55: itemName = "대천사의 포옹"; break;
-					case 65: itemName = "구원"; break;
-					case 75: itemName = "다르킨"; break;
-					case 66: itemName = "워모그의 갑옷"; break;
-					case 76: itemName = "얼어붙은 망치"; break;
-					case 77: itemName = "대자연의 힘"; break;
+					case 00: {itemTip = "B.F.대검 + B.F.대검"; itemName = "무한의 대검"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/3031.png";	break;}
+					case 10: {itemTip = "B.F.대검 + 곡궁"; itemName = "신성의 검"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/3131.png";	break;}
+					case 20: {itemTip = "B.F.대검 + 쇠사슬 조끼"; itemName = "수호 천사"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/3026.png";	break;}
+					case 30: {itemTip = "B.F.대검 + 음전자 망토"; itemName = "피바라기"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/3072.png";	break;}
+					case 40: {itemTip = "B.F.대검 + 쓸데없이 큰 지팡이"; itemName = "마법공학 총검"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/3146.png";	break;}
+					case 50: {itemTip = "B.F.대검 + 여신의 눈물"; itemName = "쇼진의 창"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/3161.png";	break;}
+					case 60: {itemTip = "B.F.대검 + 거인의 허리띠"; itemName = "지크의 전령"; itemPic = "https://static.lolchess.gg/images/tft/item/ZekesHerald.png";	break;}
+					case 70: {itemTip = "B.F.대검 + 뒤집개"; itemName = "요우무의 유령검"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3142.png";	break;}
+					case 11: {itemTip = "곡궁 + 곡궁"; itemName = "고속 연사포"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3094.png";	break;}
+					case 21: {itemTip = "곡궁 + 쇠사슬 조끼"; itemName = "유령 무희"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3046.png";	break;}
+					case 31: {itemTip = "곡궁 + 음전자 망토"; itemName = "저주받은 칼날"; itemPic = "https://static.lolchess.gg/images/tft/item/CursedBlade.png";	break;}
+					case 41: {itemTip = "곡궁 + 쓸데없이 큰 지팡이"; itemName = "구인수의 격노검"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3124.png";	break;}
+					case 51: {itemTip = "곡궁 + 여신의 눈물"; itemName = "스태틱의 단검"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3087.png";	break;}
+					case 61: {itemTip = "곡궁 + 거인의 허리띠"; itemName = "거대한 히드라"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3748.png";	break;}
+					case 71: {itemTip = "곡궁 + 뒤집개"; itemName = "몰락한 왕의 검"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3153.png";	break;}
+					case 22: {itemTip = "쇠사슬 조끼 + 쇠사슬 조끼"; itemName = "가시 갑옷"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3075.png";	break;}
+					case 32: {itemTip = "쇠사슬 조끼 + 음전자 망토"; itemName = "파쇄검"; itemPic = "https://static.lolchess.gg/images/tft/item/SwordBreaker.png";	break;}
+					case 42: {itemTip = "쇠사슬 조끼 + 쓸데없이 큰 지팡이"; itemName = "강철의 솔라리 팬던트"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3190.png";	break;}
+					case 52: {itemTip = "쇠사슬 조끼 + 여신의 눈물"; itemName = "얼어붙은 심장"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3110.png";	break;}
+					case 62: {itemTip = "쇠사슬 조끼 + 거인의 허리띠"; itemName = "붉은 덩굴정령"; itemPic = "https://static.lolchess.gg/images/tft/item/RedBuff.png";	break;}
+					case 72: {itemTip = "쇠사슬 조끼 + 뒤집개"; itemName = "기사의 맹세"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3109.png";	break;}
+					case 33: {itemTip = "음전자 망토 + 음전자 망토"; itemName = "용의 발톱"; itemPic = "https://static.lolchess.gg/images/tft/item/DragonsClaw.png";	break;}
+					case 43: {itemTip = "음전자 망토 + 쓸데없이 큰 지팡이"; itemName = "이온 충격기"; itemPic = "https://static.lolchess.gg/images/tft/item/IonicSpark.png";	break;}
+					case 53: {itemTip = "음전자 망토 + 여신의 눈물"; itemName = "침묵"; itemPic = "https://static.lolchess.gg/images/tft/item/Hush.png";	break;}
+					case 63: {itemTip = "음전자 망토 + 거인의 허리띠"; itemName = "서풍"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3172.png";	break;}
+					case 73: {itemTip = "음전자 망토 + 뒤집개"; itemName = "루난의 허리케인"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3085.png";	break;}
+					case 44: {itemTip = "쓸데없이 큰 지팡이 + 쓸데없이 큰 지팡이"; itemName = "라바돈의 죽음모자"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3089.png";	break;}
+					case 54: {itemTip = "쓸데없이 큰 지팡이 + 여신의 눈물"; itemName = "루덴의 메아리"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3285.png";	break;}
+					case 64: {itemTip = "쓸데없이 큰 지팡이 + 거인의 허리띠"; itemName = "모렐로노미콘"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3165.png";	break;}
+					case 74: {itemTip = "쓸데없이 큰 지팡이 + 뒤집개"; itemName = "유미"; itemPic = "https://static.lolchess.gg/images/tft/item/Yuumi.png";	break;}
+					case 55: {itemTip = "여신의 눈물 + 여신의 눈물"; itemName = "대천사의 포옹"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3040.png";	break;}
+					case 65: {itemTip = "여신의 눈물 + 거인의 허리띠"; itemName = "구원"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3107.png";	break;}
+					case 75: {itemTip = "여신의 눈물 + 뒤집개"; itemName = "다르킨"; itemPic = "https://static.lolchess.gg/images/tft/item/Aatrox.png";	break;}
+					case 66: {itemTip = "거인의 허리띠 + 거인의 허리띠"; itemName = "워모그의 갑옷"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3083.png";	break;}
+					case 76: {itemTip = "거인의 허리띠 + 뒤집개"; itemName = "얼어붙은 망치"; itemPic = "https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3022.png";	break;}
+					case 77: {itemTip = "뒤집개 + 뒤집개"; itemName = "대자연의 힘"; itemPic = "https://static.lolchess.gg/images/tft/item/ForceOfNature.png";	break;}
 				}
-				document.getElementById("result").innerHTML += "<a href='#' id='new'>" + itemName + "</a>" + " ";
+				document.getElementById("result").innerHTML += '<article style="width:64px; display:inline; padding:0; margin:0;"><span style="display:inline; width:64px" class="image"></span><a style="padding:10px; margin:0; border-right:2px solid gray; width:64px; height:64px" id="new"><p style="padding:0; margin:0; display:inline; font-size:23px">' + itemName + " " + "</p></a></article>";
 				var setName = "item" + sum;
 				var setMake = 'makeItem' + '(' + sum + ')';
 				var item1 = sum % 10;
@@ -289,10 +353,11 @@
 				item2 = document.getElementById("i" + item2).innerHTML;
 
 				document.getElementById("new").setAttribute('onclick', setMake);
-				if(num1 == num2) document.getElementById("new").setAttribute('data-tooltip-text', item1 + item[num1] + "개");
-				else document.getElementById("new").setAttribute('data-tooltip-text', item1 + item[num1] + "개"+ " + " + item2 + item[num2] + "개");
+				document.getElementById("new").setAttribute('data-tooltip-text', itemTip);
 				document.getElementById("new").setAttribute('id', setName);
-				setData();
+
+
+				setNumOfItem();
 			}
 
 			</script>
