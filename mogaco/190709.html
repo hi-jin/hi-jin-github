@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>##</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<style>
+			#main li {
+				display:inline;
+				padding:0;
+				border:2px solid gray;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../index.html" class="logo">
+									<span class="symbol"><img src="../images/logo.svg" alt="" /></span><span class="title">hi-jin</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="programming/index.html">Programming</a></li>
+							<li><a href="siliconvally/index.html">SiliconValley review</a></li>
+							<li><a href="mogaco/index.html">Mogaco</a></li>
+							<li><a href="#">ARGOS team</a></li>
+							<li><a href="argos_edu/index.html">ARGOS edu</a></li>
+							<li><a href="../lol/chess/index.html">LOL Chess</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<a href="index.html"><h1>Mogaco</h1></a>
+              <h2>Machine learning basic concepts && tensorflow</h2>
+							<h3>Machine learning 기본 개념</h3>
+							<p>
+								개발자가 모든 경우를 생각한 프로그래밍 : explicit Programming<br>
+								but, 규칙이 복잡한 explicit programming은 개발하기 어려움.<br>
+								<br>
+								Arthur Samuel(1959) : 프로그램이 그 자체로 <a onmouseover='alert("training set")'>어떤 데이터</a>를 보고 스스로 학습을 하면 어떨까?<br>
+								<br>
+								Supervised learning : labeled examples<br>
+								- ex) 1~10까지의 사진은 고양이, 11~20은 강아지 ...<br>
+								- 고양이, 강아지 == label<br>
+								<br>
+								Unsupervised learning : un-labeled data<br>
+								- ex) 데이터를 보고, 비슷한 것들로 나눠라.<br>
+								<br>
+							</p>
+							<h3>Types of supervised learning</h3>
+							<p>
+								Predicting final exam score based on time spend : regression<br>
+								Pass/non-pass based on time spent : binary classification<br>
+								Letter grade (A, B, C, E and F) based on time spent : multi-label classification<br>
+							</p>
+							<p>
+								Example of Regression training set
+								<table style='width:30%;'>
+									<tr>
+										<td>x(hours)</td>
+										<td>y(score)</td>
+									</tr>
+									<tr>
+										<td>10</td>
+										<td>90</td>
+									</tr>
+									<tr>
+										<td>9</td>
+										<td>80</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>50</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>30</td>
+									</tr>
+								</table>
+							</p>
+							<p>
+								Example of Binary Classification training set
+								<table style='width:30%;'>
+									<tr>
+										<td>x(hours)</td>
+										<td>y(pass/fail)</td>
+									</tr>
+									<tr>
+										<td>10</td>
+										<td>P</td>
+									</tr>
+									<tr>
+										<td>9</td>
+										<td>P</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>F</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>F</td>
+									</tr>
+								</table>
+								<br>
+							</p>
+							<h3>TensorFlow의 기본적인 operations</h3>
+							<p>
+								pip install --upgrade tensorflow(-gpu)<br>
+								혹은, bazel을 통해 직접 설치할 수도 있음.<br>
+								<br>
+								python을 실행시키고<br>
+								import tensorflow as tf &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp# tensorflow를 tf로 치환<br>
+								tf.__version__ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp# 을 통해, tensorflow의 정상 설치를 확인할 수 있다.<br>
+								<br>
+								<del>설치가 왜 이리 오래걸리지..</del><br>
+								<br>
+								tensorflow를 이용하여 hello, tensorflow를 실행한 모습<br>
+								<img style="width:50%" src="./images/hellotf.png"><br>
+								<a href="http://stackoverflow.com/questions/6269765/">b는 Bytes literals라는 것을 나타냄.</a>
+								<h3>Computational Graph</h3>
+								<p>
+									노드에 상수를 저장하고, 출력하면 결과값이 나올 것 같지만, 노드가 tensor라는 것만 출력됨.<br>
+									<img style="width:80%" src="./images/printnode.png"><br>
+									<br>
+									tf.Session().run을 이용하여 원하는 결과값을 출력하는 모습.<br>
+									<img style="width:50%" src="./images/sess.png"><br>
+									<br>
+								</p>
+								<h3>TensorFlow Mechanics</h3>
+								<p>
+									1. build graph using tensorflow operations.<br>
+									2. feed data and run graph (operation) => sess.run(op, feed_dict={x: x_data})<br>
+									3. update variables in the graph (and return values)<br>
+									<br>
+									실행 할 때, 값을 넘겨주며 실행하려면?? ==> PlaceHolder<br>
+									<img style="width:50%" src="./images/placeholder.png"><br>
+									<br>
+								</p>
+								<h3>느낀점</h3>
+								<p>
+									원래는 Linear Regression 구현까지가 학습 목표였지만, 텐서플로우와 jupyter 설치에서 시간이 오래 걸려 진도를 빠르게 나가지 못한 점이 아쉽다.<br>
+									앞으로는 학습 전에 설치 파일들을 미리 받아서 모임에 참여하도록 해야겠다.<br>
+								</p>
+							</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://www.facebook.com/profile.php?id=100008357586064" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://github.com/hi-jin" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/hi__jeans/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!--
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									-->
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
