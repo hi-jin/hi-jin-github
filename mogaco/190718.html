@@ -67,14 +67,14 @@
               <h2>keras-MNIST 손글씨 예제 실행 <a href='https://keras.io/' target='_blank'>//참고 자료</a></h2>
 							<h3>download data from MNIST</h3>
 							<p>
-								<img src='./images/down_data.png'><br>
+								<img src='./images/down_data.PNG'><br>
                 MNIST 데이터(학습용 데이터 60000개 + 검증용 데이터 10000개)를 다운로드 받는다.<br>
-                <img width='50%' src='./images/image-pixel.png'><br>
+                <img width='50%' src='./images/image-pixel.PNG'><br>
                 다운받은 데이터는 위와 같은 손글씨 데이터이다. (한 데이터의 pixel을 본 모습)<br>
 							</p>
               <h3>model의 layer</h3>
               <p>
-                <img src='./images/add-layers.png'><br>
+                <img src='./images/add-layers.PNG'><br>
                 이미지 파일이 28 * 28 픽셀이므로 입력 값의 수는 28 * 28이고,<br>
                 0~9까지 10개를 분류해야 하므로 softmax function으로 출력 뉴런의 수를 10개로 해준다.<br>
                 출력 뉴런에 관한 내용 <a target='_blank' href='https://tykimos.github.io/2017/01/27/MLP_Layer_Talk/'>링크</a><br>
@@ -82,13 +82,13 @@
               </p>
               <h3>Compile a model</h3>
               <p>
-                <img src='./images/network-compile.png'><br>
+                <img src='./images/network-compile.PNG'><br>
                 이미지 분류의 정확성을 따져야 하므로, metrics=['accuracy']이다.<br>
                 <a href='https://keras.io/getting-started/sequential-model-guide/#compilation' target='_blank'>이 곳</a>에 compile에 관한 내용이 잘 설명돼있다.
               </p>
               <h3>reshape</h3>
               <p>
-                <img src='./images/reshape-image.png'><br>
+                <img src='./images/reshape-image.PNG'><br>
                 모델의 입력값은 2D(축이 2개)이므로 입력하기 알맞게 3D인 이미지파일을 2D로 바꿔준다.<br>
                 (데이터 수, height, width) => (데이터 수, input_dim)<br>
                 <br>
@@ -97,19 +97,19 @@
               </p>
               <h3>to-categorical</h3>
               <p>
-                <img src='./images/to-categorical.png'><br>
+                <img src='./images/to-categorical.PNG'><br>
                 0~9까지의 숫자일 확률을 클래스별로 지정해주기 위해 to_categorical()을 이용해준다.<br>
               </p>
               <h3>fit</h3>
               <p>
-                <img src='./images/network-fit.png'><br>
+                <img src='./images/network-fit.PNG'><br>
                 네트워크를 통해 데이터를 학습시킨다.<br>
               </p>
               <h3>test network</h3>
               <p>
-                <img src='./images/network-test.png'><br>
+                <img src='./images/network-test.PNG'><br>
                 <br>
-                <img src='./images/accuracy.png'><br>
+                <img src='./images/accuracy.PNG'><br>
                 test데이터를 통해 정확도를 확인한다.<br>
               </p>
 							<h3>느낀점</h3>
