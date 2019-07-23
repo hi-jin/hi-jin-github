@@ -64,14 +64,52 @@
 						<div class="inner">
 							<a href="index.html"><h1>Mogaco</h1></a>
               <h2>Mogaco(모각코) : 모여서 각자 코딩</h2>
-              <h2>제목</h2>
-							<h3>소제목</h3>
+              <h2>Binary classification</h2>
+							<h3>IMDB 데이터셋 로드</h3>
 							<p>
-								#
+                karas.datasets에 있는 imdb(인터넷 영화 데이터베이스)의 데이터 중, 가장 자주 나타나는 단어 1만 개를 받아온다.<br>
+                imdb 데이터를 받기 위해 numpy의 allow_pickle 속성의 defalut 값인 False를 True로 변경<br>
+								<img width='50%' src='images/imdb_dataset.PNG'><br>
+                <br>
+                0, 1, 2는 '패딩', '문서 시작', '사전에 없음'을 위한 인덱스이므로 3을 뺀다.<br>
+                <img width='50%' src='images/imdb_decode.PNG'><br>
+                받은 데이터(정수)를 확인해보기 위해 원래의 단어로 변경한 모습<br>
 							</p>
+              <h3>데이터를 텐서로 가공</h3>
+              <p>
+                신경망에 숫자 리스트를 주입할 수는 없기 때문에, 리스트를 텐서로 변환한다.<br>
+                <a target='_blank' href='https://github.com/yerimlim/TodayILearned/wiki/2.-Embedding이란-무엇인가'>다른 방법의 변환</a>은 추후에...<br>
+                <img width='70%' src='images/imdb_vectorize.PNG'><br>
+                크기가 (데이터의 수, 10000)이고 모든 원소가 0인 행렬을 만든다.<br>
+                자주 사용한 단어 10000개만 받아왔으므로, 단어의 index는 10000보다 작다.<br>
+                따라서, 0 ~ 9999까지의 인덱스에 각각의 단어가 사용되었는지 아닌지 1 또는 0으로 표현(one-hot encoding) == vectorize_sequences(sequences)함수<br>
+              </p>
+              <h3>model 만들기</h3>
+              <p>
+                Dense층을 쌓는 과정을 거쳐야 하는데, '얼마나 많은 층을 사용할 것인지', '각 층에 얼마나 많은 은닉 유닛을 둘 것인지' 정해야 한다.<br>
+                아직은, 책에 나와있는 층을 참고해서 층을 쌓도록 한다.<br>
+                <img width='50%' src='images/imdb_layers.PNG'><br>
+                이 모델의 층은 16개의 은닉 유닛을 가진 2개의 relu 은닉 층, 리뷰의 감정을 예측하는 세 번째 sigmoid 층으로 구성됨<br>
+              </p>
+              <h3>compile & train model</h3>
+              <p>
+                모델을 컴파일하고 전체 데이터셋을 20번 훈련함<br>
+                <img width='70%' src='images/imdb_compile.PNG'><br>
+                가중치를 업데이트 하는 방식 : rmsprop 옵티마이저<br>
+                예측 값의 피드백인 손실 함수 : binary_crossentropy<br>
+                측정 지표 : accuracy<br>
+                <br>
+                아래는 훈련 과정을 그래프로 그리기 위한 코드이다.<br>
+                <img width='70%' src='images/imdb_plt.PNG'><br>
+                <br>
+                <img width='50%' src='images/imdb_loss-acc.PNG'><br>
+                training loss와 acc은 생각대로 진행되었지만, validation loss와 acc은 생각처럼 나오지 않았다.<br>
+                즉, 이 학습은 training data에 overfitting 되었다.<br>
+              </p>
 							<h3>느낀점</h3>
 							<p>
-								#
+								목표 범위를 너무 크게 잡아서 원하는 것을 모두 학습하지 못했다.<br>
+                정밀한 범위 설정이 필요할 것 같다.<br>
 							</p>
 						</div>
 					</div>
