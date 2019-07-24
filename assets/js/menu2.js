@@ -5,8 +5,6 @@ document.write('<nav id="menu">');
     document.write('<li><a href="../programming/index.html">Programming</a></li>');
     document.write('<li><a href="../siliconvalley/index.html">SiliconValley review</a></li>');
     document.write('<li><a href="../mogaco/index.html">Mogaco</a></li>');
-    document.write('<li><a href="../#">ARGOS team</a></li>');
-    document.write('<li><a href="../argos_edu/index.html">ARGOS edu</a></li>');
     document.write('<li><a href="../lol/chess/index.html">LOL Chess</a></li>');
   document.write('</ul>');
 document.write('</nav>');
