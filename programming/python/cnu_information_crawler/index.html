@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Python</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+		<style>
+			#main li {
+				display:inline;
+				padding:0;
+				border:2px solid gray;
+			}
+			.pdf {
+				width:70%;
+				height:400px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../../../index.html" class="logo">
+									<span class="symbol"><img src="../../../images/logo.svg" alt="" /></span><span class="title">hi-jin</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<script type='text/javascript' src='../../../assets/js/menu4.js'></script>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Python Programming</h1>
+							<h2>CNU information crawler</h2>
+							<h3>Development motive</h3>
+							<p>
+								충남대학교의 많은 정보들은 홈페이지에 올라오는데, 매일 인터넷에 주소를 입력하여 접속하는 과정을 더 간단하게 하고 싶었기 때문에 개발하게 되었다.
+							</p>
+							<h3>crawler_code.pdf</h3>
+							<p>
+								원래의 crawler는 아래와 같이 구성했다.<br>
+								<iframe class='pdf' src='images/CNU_information_crawler.pdf'>
+								</iframe><br>
+								<br>
+								하지만 학교 홈페이지가 바뀌면서 html 구조가 바뀌었는지, 위 방법으로는 더이상 정보를 얻는 것이 불가능했다.<br>
+								따라서 새로운 crawler를 제작하게 되었다.<br>
+								<iframe class='pdf' src='images/new_CNU_information_crawler.pdf'>
+								</iframe><br>
+								<br>
+								위 crawler를 통해 학사공지를 띄워보면 아래와 같은 결과가 나온다.<br>
+								<img style='width:70%;height:70%' src='images/crawl_result.png'><br>
+							</p>
+							<h3>parsing html file</h3>
+							<p>
+								requests를 import하여, html파일을 받아오면, 처음에는 아래와 같이 이용하기 힘든 정보가 그대로 나타나게 된다.<br>
+								<img style='width:70%;height:70%' src='images/htmlfile.png'><br>
+								<br>
+								위 정보를 가공하여 아래처럼 필요한 부분을 가져와도, 쓸 데 없는 공백들이 너무 많은 것을 볼 수 있댜.<br>
+								<img style='width:100%;height:100%;' src='images/before_replace.png'><br>
+								<br>
+								쓸 데 없는 \r, \t \n 등을 공백으로 replace 해주면, 이용하기 적합한 정보를 얻을 수 있다.<br>
+								<img style='width:100%;height:100%;' src='images/after_replace.png'><br>
+							</p>
+							<h3>느낀점</h3>
+							<p>
+								지금은 제목만 보이지만, 나중에는 내용까지 받아오거나 클릭 시 홈페이지로 이동할 수 있는 프로그램으로 발전시키고 싶다.
+							</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://www.facebook.com/profile.php?id=100008357586064" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://github.com/hi-jin" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/hi__jeans/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!--
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									-->
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../../assets/js/jquery.min.js"></script>
+			<script src="../../../assets/js/browser.min.js"></script>
+			<script src="../../../assets/js/breakpoints.min.js"></script>
+			<script src="../../../assets/js/util.js"></script>
+			<script src="../../../assets/js/main.js"></script>
+
+	</body>
+</html>
