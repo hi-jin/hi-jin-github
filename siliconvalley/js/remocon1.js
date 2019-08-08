@@ -1,0 +1,13 @@
+document.write('<div class="remocon">');
+  document.write('<p style="padding:0; margin:0; padding-left:10px; border-left:2px solid gray;">');
+    document.write('활동 내용 / <a href="./index.html">활동 일정</a><br>');
+    document.write('<a href="./0731/index.html">7/31 : 시내 관광</a><br>');
+    document.write('<a href="./0801/index.html">8/1 : 실리콘밸리 기업 방문, 시내 관광</a><br>');
+    document.write('<a href="./0802/index.html">8/2 : 51 Conference</a><br>');
+    document.write('<a href="./0803/index.html">8/3 : 51 Conference</a><br>');
+    document.write('<a href="./0804/index.html">8/4 : Post conference</a><br>');
+    document.write('<a href="./0805/index.html">8/5 : Post conference at Google</a><br>');
+    document.write('<a href="./0806/index.html">8/6 : 귀국</a><br>');
+    document.write('<a href="./0807/index.html">8/7 : 귀가, 느낀점</a>');
+  document.write('</p>');
+document.write('</div>');
