@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Web server</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+		<style>
+			#main li {
+				display:inline;
+				padding:0;
+				border:2px solid gray;
+			}
+			.pdf {
+				width:70%;
+				height:400px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../../../index.html" class="logo">
+									<span class="symbol"><img src="../../../images/logo.svg" alt="" /></span><span class="title">hi-jin</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<script type='text/javascript' src='../../../assets/js/menu4.js'></script>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Web server</h1>
+							<h2>Setting Raspberry Pi</h2>
+							<h3>Development motive</h3>
+							<p>
+								GitHub blog로 글들을 포스팅하며 웹 공부를 하다보니, 직접 만든 서버로 웹을 구현해보고 싶다는 생각이 들어 아무것도 모르는 상태로 라즈베리파이를 구매했다.
+							</p>
+							<h3>Things needed for setting raspberry pi</h3>
+							<p>
+								라즈베리파이, (쿨러), (케이스), SD카드, SD카드 리더기, 마이크로 5핀 충전기, 랜케이블, 인터넷이 연결된 공유기
+							</p>
+							<h3>view of my raspberry pi</h3>
+							<p>
+								라즈베리파이 3 b+ / 쿨러 / 케이스<br>
+								<img src='images/raspberry_pi.jpg'><br>
+								아무것도 모르고 일단 조립하고 전원을 연결한 모습이다. 쿨러가 돌아가지 않아서 고생했는데, 거꾸로 꽂았었다.<br>
+								<del>케이스를 분리해서 사진을 예쁘게 찍어서 올리고 싶었는데, 그런 사진은 인터넷에 많으니 본인은 실상(?)을 올리겠다.</del>
+							</p>
+							<h3>Installing raspbian</h3>
+							<p>
+								<a target='_blank' href='https://www.raspberrypi.org/downloads/raspbian/'>라즈베리파이 공식 페이지</a>에서 라즈비안 os를 다운로드 한다.<br>
+								<img width='50%' src='images/download_raspbian.png'><br>
+								세 선택지 중, 위의 두 개는 여러 패키지들과 Desktop GUI가 있는 버전이라는데,<br>
+								모니터랑 HDMI 선이 없기도 하고 애초에 ssh로 접속하여 사용할 생각이었기 때문에, 가장 간단한 LITE 버전을 설치했다.<br>
+							</p>
+							<h3>Writing raspbian to SD card</h3>
+							<p>
+								<a target='_blank' href='https://etcher.io'>Etcher</a>를 이용하여 SD카드에 이미지를 쓴다.<br>
+								<img width='60%' src='images/etcher.png'><br>
+								그림에 나와있는 대로 따라하면 알아서 된다! (폴더 이름은 boot로 했음)
+							</p>
+							<h3>Connect LAN and Power</h3>
+							<p>
+								이제 SD카드를 꽂은 채로 공유기에 연결하고, 전원을 연결하면 팬이 돌아가고 불빛이 깜빡거리며 부팅이 된다!<br>
+								<br>
+								공유기 페이지에서 라즈베리 파이 IP를 찾아서 ssh로 연결을 시도해봤는데...<br>
+								접근이 안된다 ㅠㅠ<br>
+								이런 경우에는 터미널로 cd 명령을 통해 SD카드의 boot 폴더로 이동하고, touch ssh라는 명령으로 1회성으로 ssh 연결을 허용시켜준다.<br>
+								<br>
+								그 후에, ssh 명령으로 접속하여 root권한으로 sudo raspi-config을 실행하여 설정을 진행하면 된다.<br>
+								<img width='60%' src='images/raspi-config.png'><br>
+								Interfacing Option에 들어가서 ssh를 켜주는 등의 작업을 해야하는데,
+								<a target='_blank' href='https://acertainlog.wordpress.com/2015/04/29/raspi-config/'>
+									여기</a> 잘 설명되어있는 사이트가 있으니 참고하면 좋을 것 같다.<br>
+							</p>
+							<h3>router setting</h3>
+							<p>
+								지금 상황에서 외부 내트워크에서 ssh를 이용해 접속하려고 하면, 접속되지 않을 것이다.<br>
+								<br>
+								그 이유는 외부 IP 주소를 이용해 공유기가 가상 IP 주소를 만들어서 여러 기기로 IP를 공유하는데,<br>
+								이렇게 공유된 가상 IP는 공유기의 것이므로 외부에서 찾을 수 없기 때문이다.<br>
+								<br>
+								따라서, '포트포워딩'을 통해 외부아이피의 특정 포트로 접속을 시도하면, 특정 가상 IP로 접속하도록 만들어야 한다.<br>
+								ex) 공대 5호관 401호로 와 => (포트포워딩) => 충남대학교의 공대 5호관 401호로 와<br>
+								<br>
+								<a target='_blank' href='https://m.blog.naver.com/PostView.nhn?blogId=seoulworkshop&logNo=221265052717&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F'>
+									매우 설명이 잘 된 블로그</a>가 있으니 참고하면 좋다.<br>
+							</p>
+							<h3>connect</h3>
+							<p>
+								외부에서 정상적으로 연결된 모습이다. (도메인은 친구가 제공해줬음)<br>
+								<img width='60%' src='images/connect.png'><br>
+							</p>
+							<h3>느낀점</h3>
+							<p>
+								서버는 만들었는데, 뭘 해야할지 모르겠다. 아파치, php, mysql등을 깔아서 웹서버로도 운영을 해볼지 고민중이다.<br>
+								서버로 뭘 할 수 있을지 알아봐야 할 것 같다.
+							</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://www.facebook.com/profile.php?id=100008357586064" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://github.com/hi-jin" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/hi__jeans/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!--
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									-->
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../../assets/js/jquery.min.js"></script>
+			<script src="../../../assets/js/browser.min.js"></script>
+			<script src="../../../assets/js/breakpoints.min.js"></script>
+			<script src="../../../assets/js/util.js"></script>
+			<script src="../../../assets/js/main.js"></script>
+
+	</body>
+</html>
