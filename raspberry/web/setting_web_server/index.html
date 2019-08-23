@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Web server</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+		<style>
+			#main li {
+				display:inline;
+				padding:0;
+				border:2px solid gray;
+			}
+			.pdf {
+				width:70%;
+				height:400px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../../../index.html" class="logo">
+									<span class="symbol"><img src="../../../images/logo.svg" alt="" /></span><span class="title">hi-jin</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<script type='text/javascript' src='../../../assets/js/menu4.js'></script>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Web server</h1>
+							<h2>Setting web server!</h2>
+							<h3>Development motive</h3>
+							<p>
+								서버를 가지고 할 수 있는 것 중 하나가 웹 서버 운영이라고 생각하여 시작하게 되었다.<br>
+								<br>
+							</p>
+							<h3>things that I needed for server operation</h3>
+							<p>
+								Apache HTTP Server // 컴퓨터(서버)를 웹서버로 만들어준다. (HTTP 요청 처리)<br>
+								PHP // 웹 프로그래밍 언어, 서버에서 실행되는 서버사이드 언어, db와 연동<br>
+								MariaDB // MySQL과 거의 같은데 훨씬 빠르고 가벼운 데이터베이스이다.<br>
+								(apt install 명령어로 설치하였다.)<br>
+								<div class='col-12'><span class='image fit'><img src='images/versions.png'></span></div><br>
+								<br>
+							</p>
+							<h3>mkdir public_html</h3>
+							<p>
+								개인별 웹 디렉토리를 만들어주기 위해 각종 설정을 하고 mkdir 명령어로 public_html 폴더를 만들었다.<br>
+								아래에 보이는 사용자들 모두 public_html이라는 폴더를 가지고 있고, 그 폴더에 각자의 웹을 만들 수 있다!<br>
+								(http://서버주소/~유저명 으로 접근가능)<br>
+								<img src='images/public_html.png' width='450px'><br>
+								<br>
+								개별 웹 디렉토리를 활성화 하기 위해, userDir이라는 모듈을 활성화 시켜줘야 한다. 그러기 위해서..<br>
+								cd명령어로 /etc/apache2/mods-available 로 이동한다.<br>
+								이름에서 알 수 있듯, 사용가능한 모듈들이 모여있는 폴더인데, 그 폴더에서 userdir.conf를 찾아 아래처럼 수정했다.<br>
+								<img src='images/userdir.png' width='600px'><br>
+								<br>
+								그리고, 이 모듈을 활성화 하기 위해, userdir.conf와 userdir.load를 cp명령어로 mods-enabled에 복사해주었다.<br>
+								<img src='images/mvuserdir.png' width='600px'><br>
+								<br>
+							</p>
+							<h3>my Web page!</h3>
+							<p>
+								간단한 회원가입, 로그인, 로그아웃 기능을 구현해보았다.<br>
+								<img width='650px' src='images/myweb.png'><br>
+								<br>
+								아래는 접속했을 떄의 화면이다. (할 일 제출은 아직 구현 안했다.)<br>
+								로그인을 하지 않은 채로 <a target='_blank' href='http://cs-cnu.pansle.com/~hi-jin/logined.php'>로그인 후의 페이지</a>로 이동하려고 하면 세션을 검사하여 접근을 거부하도록 했다.<br>
+								<del>세션 구현을 제대로 했는지는 잘 모르겠다..</del><br>
+								<span style="width:50%" class='image left'><img src='images/myweb1.png'></span>
+								<span style="width:50%" class="image right"><img src='images/myweb2.png'></span>
+								<span style="width:50%" class='image left'><img src='images/myweb3.png'></span>
+								<span style="width:50%" class="image right"><img src='images/myweb4.png'></span><br>
+								<br>
+							</p>
+							<h3>느낀점</h3>
+							<p>
+								이번에는 로그인, 회원가입을 구현했다. 이제 뭘 더 해야할지 더 생각해봐야 할 것 같다.<br>
+								나름 보안 동아리 부원이니까 취약점을 찾아보고 보완해볼지,<br>
+								아니면 화면을 꾸밀지 생각중이다. 로그인 화면을 이렇게 만들어 놓으면, 아무도 가입하고 싶어하지 않을 것 같기 때문이다.<br>
+							</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://www.facebook.com/profile.php?id=100008357586064" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://github.com/hi-jin" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/hi__jeans/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!--
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									-->
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../../assets/js/jquery.min.js"></script>
+			<script src="../../../assets/js/browser.min.js"></script>
+			<script src="../../../assets/js/breakpoints.min.js"></script>
+			<script src="../../../assets/js/util.js"></script>
+			<script src="../../../assets/js/main.js"></script>
+
+	</body>
+</html>
