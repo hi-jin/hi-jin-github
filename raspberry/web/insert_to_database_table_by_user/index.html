@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Web server</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+		<style>
+			#main li {
+				display:inline;
+				padding:0;
+				border:2px solid gray;
+			}
+			.pdf {
+				width:70%;
+				height:400px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../../../index.html" class="logo">
+									<span class="symbol"><img src="../../../images/logo.svg" alt="" /></span><span class="title">hi-jin</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<script type='text/javascript' src='../../../assets/js/menu4.js'></script>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Web server</h1>
+							<h2>insert to database table by user!</h2>
+							<h3>Development motive</h3>
+							<p>
+								사용자에게 일정을 입력받고 일정 관리를 해주는 사이트를 만들 예정이기 때문에, 일정을 입력받아서 DB 테이블에 Insert하는 페이지를 만들어 보았다.<br>
+								<br>
+							</p>
+							<h3>things that I needed</h3>
+							<p>
+								<del>강한 정신력</del><br>
+								<br>
+							</p>
+							<h3>data sending form</h3>
+							<p>
+								할 일, 요일, 시작 시각, 끝 시각을 입력하는 폼이다.<br>
+								<img src='images/form.png' width='600px'><br>
+								<br>
+								어떻게 구현했는지 Database를 보자면 아래와 같다.<br>
+								<br>
+							</p>
+							<h3>my Database!</h3>
+							<p>
+								테이블을 출력한 모습이다.<br>
+								<img width='400px' src='images/myTables.png'><br>
+                <br>
+                하나씩 설명해보면,<br>
+                login_log는 말 그대로 유저들이 로그인 한 시각을 저장하는 테이블이다.<br>
+                <img width='300px' src='images/login_log.png'><br>
+                <br>
+                user는 유저들의 id와 pw가 저장된 테이블이다.(아직 그대로 노출돼서.. 어서 암호화를 해야할 것 같다.. ㅠㅠ)<br>
+                <img width='400px' src='images/user.png'><br>
+                <br>
+                crushed7과 yoojh08은 회원가입을 한 유저들이 보낼 데이터들(할 일, 요일, 시각...)을 저장할 테이블이다.<br>
+                회원가입 하면 자동으로 생성되도록 만들었다.<br>
+                <img width='350px' src='images/userTable.png'><br>
+								<br>
+							</p>
+							<h3>느낀점</h3>
+							<p>
+                다음에는 입력한 할 일들을 출력하고, 관리할 수 있도록 만들 생각이다.<br>
+                아니면, 웹해킹 연습을 할 겸 이 웹의 취약점을 연구해볼 수도 있을 것 같다.<br>
+							</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://www.facebook.com/profile.php?id=100008357586064" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://github.com/hi-jin" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/hi__jeans/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!--
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									-->
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../../assets/js/jquery.min.js"></script>
+			<script src="../../../assets/js/browser.min.js"></script>
+			<script src="../../../assets/js/breakpoints.min.js"></script>
+			<script src="../../../assets/js/util.js"></script>
+			<script src="../../../assets/js/main.js"></script>
+
+	</body>
+</html>
