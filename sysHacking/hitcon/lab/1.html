@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>System Hacking - HITCON</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+		<style>
+			#main li {
+				display:inline;
+				padding:0;
+				border:2px solid gray;
+			}
+			.pdf {
+				width:70%;
+				height:400px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../../../index.html" class="logo">
+									<span class="symbol"><img src="../../../images/logo.svg" alt="" /></span><span class="title">hi-jin</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<script type='text/javascript' src='../../../assets/js/menu4.js'></script>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>System Hacking - HITCON</h1>
+							<h2>Lab 01</h2>
+							<h3>source code</h3>
+							<p>
+								<img width='500px' src='images/lab01_code.png'><br>
+								<br>
+							</p>
+							<h3>solution</h3>
+							<p>
+              	HITCON을 받았을 때 제공된 실행파일로 디버깅을 하려 했는데, 아래와 같은 오류가 나서 새로 컴파일했다.<br>
+								원래는 32비트 파일이었던 것 같은데, 64비트 환경에서 새로 컴파일 해서 64비트 파일이 되었다..<br>
+								<img width='500px' src='images/lab01_err.png'><br>
+								<br>
+								실행해보면 아래와 같이 나오는데, 뭔가 값을 입력받는 것을 보니 값을 입력받고 비교하는 부분이 있을 것이라는 것을 알 수 있다.<br>
+								<img width='400px' src='images/lab01_r.png'><br>
+								<br>
+								우선 어떤 함수가 쓰였는지 보기 위해 info func를 실행했고, main함수와 get_flag라는 함수가 있다는 것을 알았다.<br>
+								<img width='500px' src='images/lab01_infofunc.png'><br>
+								<br>
+								setvbuf라는 함수를 실행하기 전에, stdout, 0, 2, 0을 레지스터에 넣는 것을 보니<br>
+								인자에 stdout, 0, 2, 0을 전달해준다는 것을 알 수 있다.<br>
+								(32비트는 인자를 스택에 넣는 것 같았는데, 뭔가 작동 방식이 다른 건가..?)<br>
+								<img width='500px' src='images/lab01_pdmain.png'><br>
+								<br>
+								그 후에는 그냥 get_flag를 실행하는 것을 볼 수 있는데,<br>
+								setvbuf가 사용자 입력을 받는 부분 같은 게 아니기 때문에 넘어가고 get_flag를 뜯어보자.<br>
+								<span style="width:50%" class='image left'><img src='images/lab01_pdget_flag1.png'></span>
+								<span style="width:50%" class='image right'><img src='images/lab01_pdget_flag2.png'></span>
+								엄청 길어서 좀 잘랐다.<br>
+								<br>
+								두번째 사진을 위주로 보면, scanf로 입력을 받고, cmp(비교)하는 부분이 있는 것을 알 수 있다.<br>
+								값을 입력받고 비교하는 부분이 있을 거라는 가정이 맞았다.<br>
+								<img width='500px' src='images/lab01_pdget_flag_cmp.png'><br>
+								<br>
+								비교 부분에 breakpoint를 걸고, 입력 값은 아무 거나(1234) 주고 edx(rdx), eax(rax)값을 관찰하자.<br>
+								<img width='500px' src='images/lab01_edxeax.png'><br>
+								<br>
+								rdx는 0x7d95fb65, rax는 0x4d2가 나왔는데, 16진수로 쓰여있어 알아보기 힘드므로 10진수로 바꿔주자.<br>
+								<img width='300px' src='images/lab01_p_d.png'><br>
+								<br>
+								rax값을 2106981221로 바꿔주면 cmp를 통과할 수 있을 것이다!! set으로 바꿔주자.<br>
+								<img width='300px' src='images/lab01_setrax.png'><br>
+								<br>
+								c(continue)를 입력하여 cmp구문을 무사히 통과하고 flag를 얻을 수 있었다.<br>
+								<img width='500px' src='images/lab01_continue.png'><br>
+								(warning은 또 왜 나오는 건지 모르겠다...)<br>
+								<br>
+							</p>
+							<h3>느낀점</h3>
+							<p>
+								풀긴 한 것 같은데 warning이나 오류들의 원인을 몰라서, 이렇게 하는 게 맞는지 확신이 없다.<br>
+								<del>맞겠지 뭐..</del><br>
+							</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://www.facebook.com/profile.php?id=100008357586064" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://github.com/hi-jin" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.instagram.com/hi__jeans/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!--
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									-->
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../../assets/js/jquery.min.js"></script>
+			<script src="../../../assets/js/browser.min.js"></script>
+			<script src="../../../assets/js/breakpoints.min.js"></script>
+			<script src="../../../assets/js/util.js"></script>
+			<script src="../../../assets/js/main.js"></script>
+
+	</body>
+</html>
